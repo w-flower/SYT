@@ -1,0 +1,1 @@
+pyinstaller -F -w C:\Users\feilong\Desktop\MyProject\SYT-SaveYourTime\SYT-SaveYourTime\SYT-4.0.0\main.py -p wxpython -p os.py -p time.py

@@ -367,6 +367,7 @@ class MyApp(wx.App):
         MainFrame().Show()
         return True
 
+
 if __name__ == "__main__":
     app = MyApp()
     app.MainLoop()

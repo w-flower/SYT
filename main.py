@@ -260,6 +260,8 @@ class PlanTree(customtreectrl.CustomTreeCtrl):
 
         self.root = self.AddRoot("我的任务集")
 
+        self._load_plan_list({"root1":["dsaf ", "dsaf"], "root2":[1]})
+
     def create_plan(self, name):
         item = self.AppendItem(self.GetSelection(), name)
         self.DoSelectItem(item)
@@ -274,12 +276,19 @@ class PlanTree(customtreectrl.CustomTreeCtrl):
             dialog.ShowModal()
     
         
-    def _load_plan_list(self):
-        root_note_books = ['使用','wxPython','打造','自己的','印象笔记']
+    def _load_plan_list(self, tree_plan_data: dict):
+        '''
+        :params tree_plan_data: data for trees:
+        {root1: [item1, item2...]
+         root2: [...]}
+        '''
+        #root_plan = [i for i in tree_plan_data.keys()]
 
-        for note_book in root_note_books:
-            root_node = self.AppendItem(self.root, note_book, on_the_right=True)
-            self.AppendItem(root_node, '任务集')
+        for plan_set in tree_plan_data.items():
+            root_node = self.AppendItem(self.root, plan_set[0], on_the_right=True)
+            for plan_item in plan_set[1]:
+                self.AppendItem(root_node, str(plan_item))
+            
         self.ExpandAll()
 
 class PlanDialog(wx.Dialog):

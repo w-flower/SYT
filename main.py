@@ -288,6 +288,7 @@ class PlanTree(customtreectrl.CustomTreeCtrl):
             root_node = self.AppendItem(self.root, plan_set[0], on_the_right=True)
             for plan_item in plan_set[1]:
                 self.AppendItem(root_node, str(plan_item))
+                
             
         self.ExpandAll()
 

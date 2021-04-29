@@ -361,6 +361,7 @@ class MainFrame(wx.Frame):
 
     def __del__(self):
         self.aui_manager.UnInit()
+        
 
 class MyApp(wx.App):
     def OnInit(self):
